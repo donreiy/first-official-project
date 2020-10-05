@@ -1,0 +1,409 @@
+:root {
+  --mainColor: #eaeaea;
+  --secondaryColor: #fff;
+
+  --borderColor: #c1c1c1;
+
+  --mainText: black;
+  --secondaryText: #4b5156;
+
+  --themeDotBorder: #24292e; /*this color code is black*/
+
+  --previewBg: rgb(251, 249, 243, 0.8);
+  --oreviewShadow: #f0ead6;
+
+  --buttonColor:black;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+body * {
+  transition: 1s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong {
+  color: var(--mainText);
+  font-family: "Russo One", sans-serif;
+  font-weight: 500;
+  /* this is to reduce the thickness of the header
+  notice that the  500 don't have px attached. */
+}
+
+p,
+li,
+span,
+label,
+input,
+textarea {
+  color: var(--secondaryText);
+  font-family: "Roboto Mono", monospace;
+}
+a {
+  text-decoration: none;
+  color: #17a2b8;
+}
+
+h1 {
+  font-size: 56px;
+}
+h2 {
+  font-size: 36px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+h5 {
+  font-size: 20px;
+}
+h6 {
+  font-size: 16px;
+}
+
+.s1 {
+  background-color: var(--mainColor);
+  border-bottom: 1px solid var(--borderColor);
+  overflow: auto;
+}
+
+.s2 {
+  background-color: var(--secondaryColor);
+  border-bottom: 1px solid var(--borderColor);
+  overflow: auto;
+}
+
+.main-container {
+  width: 1200px;
+  margin: 0 auto;
+  /* this is an old pattern of centering
+ it is a faster type but it needs a media 
+ query to make it responsive */
+}
+
+.greeting-wrapper {
+  display: grid;
+  text-align: center; /*we used this instead of justify content because we want the text to be perfectly in the center at all time. if we but the text in a wrapper then we can use justify content*/
+  align-content: center;
+  min-height: 10em;
+}
+
+
+.intro-wrapper {
+  background-color: var(--secondaryColor);
+  border: 1px solid var(--borderColor);
+  border-radius: 20px 20px 0 0; /*this would set the border raduius only at the top*/
+
+  -webkit-box-shadow: 4px 3px 13px 2px rgba(252, 3, 252, 1);
+  -moz-box-shadow: 4px 3px 13px 2px rgba(252, 3, 252, 1);
+  box-shadow: 4px 3px 13px 2px rgba(252, 3, 252, 1);
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3em auto; /*this is the gtr as we know and we just need this to make the height. You know that gtr makes the height or you can use fractions and then apply grid auto rows*/
+  grid-template-areas:
+    "nav-wrapper nav-wrapper"
+    "left-column right-column";
+}
+
+.nav-wrapper {
+  background-color: var(--mainColor);
+  border-radius: 20px 20px 0 0; /*we have to put the same border radius curving like we put in the container here so that it would not over ride the container*/
+
+  grid-area: nav-wrapper;
+  border-bottom: 1px solid var(--borderColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dots-wrapper {
+  display: flex;
+  padding: 10px;
+}
+
+#dot-1 {
+  background-color: #fc6058;
+}
+#dot-1:hover {
+  background-color: black;
+  -webkit-box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+  -moz-box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+  box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+}
+
+#dot-1:active {
+  background-color: lawngreen;
+  margin-top: 3px;
+}
+
+#dot-2 {
+  background-color: #fec02f;
+}
+#dot-3 {
+  background-color: #2aca3e;
+} /*notice that both a div and a class was used where this id was used. This was bacause we needed to change different colors for each div.*/
+
+.browser-dot {
+  background-color: black;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%; /*recall that this makes a div a circle when border-radius: is 50%;*/
+  margin: 5px;
+}
+
+#navigation {
+  margin: 0;
+  padding: 10px;
+  list-style: none;
+}
+
+#navigation li {
+  display: inline-block; /*this is to make the list in a line and also a block element. If we use only block, the lists would be in their own line so inline block would inline the block ie: making us to add width height and the rest while the text,div or what ever is inline. It is just like span but now it ia a span you can change dimentions.https://stackoverflow.com/questions/8969381/what-is-the-difference-between-display-inline-and-display-inline-block. .*/
+  background-color: green;
+}
+
+#navigation > a:nth-child(1) {
+  height: 50px;
+  background: greenyellow;
+  text-overflow: none;
+  display: inline-block;
+}
+
+.left-column {
+  grid-area: left-column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+#profile-pic {
+  display: block;
+  margin: 0 auto; /*this was again used to center it at the left. See how useful this old method of centering is.*/
+
+  width: 200px;
+  height: 200px;
+  border-radius: 10%;
+  object-fit: cover; /*this would make the object fit as best as possible*/
+  border: 2px solid var(--borderColor);
+}
+
+.theme-dot {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-color: black;
+
+  cursor: pointer;
+  margin: 5px;
+  border: 2px solid var(--borderColor);
+
+  -webkit-box-shadow: 4px 3px 13px 2px rgb(17, 3, 17, 0.75);
+  -moz-box-shadow: 4px 3px 13px 2px rgba(252, 3, 252, 1);
+  box-shadow: 4px 3px 13px 2pxrgb (17, 3, 17, 0.75);
+}
+
+.theme-dot:hover {
+  border-width: 5px; /*you can just use border-width: 5px; if you don't want to use border:5px solid black; the 5px is the width, solid is the border-style: ; and the black is the border-color: ; */
+}
+
+#light-mode {
+  background-color: #fff;
+}
+#blue-mode {
+  background-color: #192734;
+}
+#green-mode {
+  background-color: #78866b;
+}
+#purple-mode {
+  background-color: #7e4c74;
+}
+
+#settings-note {
+  font-size: 12px;
+  font-style: italic;
+  text-align: center;
+}
+
+#theme-options-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.right-column {
+  grid-area: right-column;
+  display: grid;
+  align-content: center; /*This could make the content to be at the center*/
+}
+
+#preview {
+  width: 300px;
+  height: 180px;
+  border: 1.5px solid #17a2b8;
+  background-color: var(--previewBg);
+  padding: 15px;
+  position: relative;
+}
+
+#preview-shadow {
+  background-color: var(--oreviewShadow);
+  height: 180px;
+  width: 300px;
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.corner {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid #17a2b8;
+  background-color: #fff;
+  position: absolute;
+}
+
+#corner-tl {
+  top: -5px;
+  left: -5px;
+}
+
+#corner-tr {
+  top: -5px;
+  right: -5px;
+}
+
+#corner-bl {
+  bottom: -5px;
+  left: -5px;
+}
+
+#corner-br {
+  bottom: -5px;
+  right: -5px;
+}
+
+.about-wrapper {
+  display: grid;
+  gap: 100px;
+  padding: 50px auto;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+}
+
+#skills {
+  display: flex;
+  justify-content: space-evenly;
+  background-color: var(--oreviewShadow);
+}
+
+#skills ul li {
+  list-style: none;
+}
+
+#social_img {
+  width: 100%;
+}
+
+.social-links {
+  display: grid;
+  align-content: center;
+  text-align: center;
+}
+
+.post-wrapper {
+  display: grid;
+  grid-template-columns: 
+  repeat( auto-fit, 320px );
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 50px;
+}
+
+.post {
+  border: 1px solid var(--borderColor);
+  -webkit-box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+  -moz-box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+  box-shadow: 0px -2px 5px 0px rgba(224, 25, 224, 1);
+
+}
+
+.thumbnail {
+  display: block;
+  width: 100%;
+  height: 180px;
+object-fit: cover; 
+/* this would make the pic fit perfectly. */
+
+}
+
+.post-preview {
+  background-color: #fff; /* this is a perfect white background */
+  padding: 15px;
+}
+
+.post-title {
+  color: black;
+  margin: 0;
+}
+
+#contact-form {
+  display: block;
+  max-width:600px;
+  margin: 0 auto;
+  border: 1px solid var(--borderColor);
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--mainColor);
+  margin-bottom: 50px;
+
+ 
+  
+}
+
+#submit-btn {
+  width: 100%;
+  background-color: var(--buttonColor);
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  margin-top: 10px;
+  padding: 10px 0;
+
+}
+
+.input-field {
+  width: 100%; /*this is to spread the input fields to fill the form space*/
+  padding: 10px 0;
+  background-color: var(--secondaryColor);
+  border-radius: 5px;
+  border: 1px solid var(--borderColor);
+  font-size: 14px;
+}
+
+@media screen and (max-width: 800px) {
+  .intro-wrapper {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto; /*this is the gtr as we know and we just need this to make the height. You know that gtr makes the height or you can use fractions and then apply grid auto rows*/
+    grid-template-areas:
+      "nav-wrapper "
+      "left-column "
+      "right-column";
+  }
+
+  .right-column {
+    justify-content: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}
